@@ -4,8 +4,8 @@ Example 1: Simple Text Document
 Demonstrates basic text rendering in a PDF
 """
 
-from gen_pdf import Document, Page
-from gen_pdf.blocks import TextBlock
+from build_pdf import Document, Page
+from build_pdf.blocks import TextBlock
 from reportlab.lib.colors import HexColor
 
 # Create a new page

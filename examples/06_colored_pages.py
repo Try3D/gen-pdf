@@ -5,8 +5,8 @@ Demonstrates creating documents with colored page backgrounds.
 Shows how each page can have its own unique color scheme.
 """
 
-from gen_pdf import Document, Page
-from gen_pdf.blocks import TextBlock, SpacerBlock
+from build_pdf import Document, Page
+from build_pdf.blocks import TextBlock, SpacerBlock
 from reportlab.lib.colors import HexColor
 
 # Create first page with blue background

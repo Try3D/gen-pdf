@@ -4,9 +4,9 @@ Example 4: Document with Containers and Layout
 Demonstrates using containers for structured layouts
 """
 
-from gen_pdf import Document, Page
-from gen_pdf.blocks import TextBlock, ContainerBlock, SpacerBlock
-from gen_pdf.styles import ContainerStyle
+from build_pdf import Document, Page
+from build_pdf.blocks import TextBlock, ContainerBlock, SpacerBlock
+from build_pdf.styles import ContainerStyle
 from reportlab.lib.colors import HexColor
 from reportlab.lib.units import inch
 

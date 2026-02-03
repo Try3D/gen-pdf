@@ -5,8 +5,8 @@ Demonstrates all available fonts in the Gen PDF library.
 Shows different font families, sizes, and styles.
 """
 
-from gen_pdf import Document, Page
-from gen_pdf.blocks import TextBlock, SpacerBlock
+from build_pdf import Document, Page
+from build_pdf.blocks import TextBlock, SpacerBlock
 from reportlab.lib.colors import HexColor
 
 # Create page

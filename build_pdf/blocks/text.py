@@ -1,6 +1,6 @@
 from typing import Optional, Any, TYPE_CHECKING
 if TYPE_CHECKING:
-    from gen_pdf.styles.context import RenderContext
+    from build_pdf.styles.context import RenderContext
 from reportlab.platypus import Paragraph
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.styles import ParagraphStyle

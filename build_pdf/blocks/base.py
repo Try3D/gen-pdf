@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from typing import List, Tuple, Optional, Union, Any
 from reportlab.lib.colors import HexColor
 
-from gen_pdf.styles.context import RenderContext
+from build_pdf.styles.context import RenderContext
 
 class Block(ABC):
     def __init__(self, style: Optional[Any] = None):

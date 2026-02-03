@@ -4,8 +4,8 @@ Example 2: Multi-page Document
 Demonstrates creating a document with multiple pages
 """
 
-from gen_pdf import Document, Page
-from gen_pdf.blocks import TextBlock, SpacerBlock
+from build_pdf import Document, Page
+from build_pdf.blocks import TextBlock, SpacerBlock
 from reportlab.lib.colors import HexColor
 
 # Create first page

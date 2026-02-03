@@ -1,7 +1,7 @@
 from typing import List, Optional
 from reportlab.platypus import Table, TableStyle
 from .base import Block, BaseTableBlock
-from gen_pdf.styles.context import RenderContext
+from build_pdf.styles.context import RenderContext
 
 class RowBlock(BaseTableBlock):
     def __init__(self, children: List[Block], col_widths=None, style=None):

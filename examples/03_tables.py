@@ -4,8 +4,8 @@ Example 3: Document with Tables
 Demonstrates creating tables in PDF documents with color-coded indicators
 """
 
-from gen_pdf import Document, Page
-from gen_pdf.blocks import TextBlock, TableBlock, SpacerBlock
+from build_pdf import Document, Page
+from build_pdf.blocks import TextBlock, TableBlock, SpacerBlock
 from reportlab.lib.colors import HexColor
 
 # Create page

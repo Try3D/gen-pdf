@@ -1,6 +1,6 @@
-# Gen PDF Examples
+# Build PDF Examples
 
-This directory contains 7 example scripts demonstrating how to use the Gen PDF library to generate professional PDF documents.
+This directory contains 7 example scripts demonstrating how to use the Build PDF library to generate professional PDF documents.
 
 ## Examples
 
@@ -87,7 +87,7 @@ python3 06_colored_pages.py
 ### 7. Font Showcase (`07_font_showcase.py`)
 **Output:** `07_font_showcase.pdf`
 
-Demonstrates all available fonts in the Gen PDF library. Shows:
+Demonstrates all available fonts in the Build PDF library. Shows:
 - Using different font families (DM Sans, Roboto, Poppins, Open Sans, Lato)
 - Font styling and sizing
 - How different fonts work for different purposes
@@ -107,7 +107,7 @@ for f in *.py; do python3 "$f"; done
 
 ## Installation
 
-Make sure Gen PDF is installed in your environment:
+Make sure Build PDF is installed in your environment:
 
 ```bash
 pip install -e ..
@@ -143,7 +143,7 @@ All examples generate PDF files in the same directory:
 ### Creating a Document
 
 ```python
-from gen_pdf import Document, Page
+from build_pdf import Document, Page
 
 # Method 1: Manual
 doc = Document()
@@ -152,7 +152,7 @@ doc.add_page(page)
 doc.generate("output.pdf")
 
 # Method 2: Using DocumentBuilder
-from gen_pdf import DocumentBuilder
+from build_pdf import DocumentBuilder
 builder = DocumentBuilder()
 builder.add_page(page)
 builder.generate("output.pdf")
@@ -161,7 +161,7 @@ builder.generate("output.pdf")
 ### Adding Content to a Page
 
 ```python
-from gen_pdf.blocks import TextBlock, TableBlock, SpacerBlock, ContainerBlock
+from build_pdf.blocks import TextBlock, TableBlock, SpacerBlock, ContainerBlock
 
 page.add_block(TextBlock("Hello World", fontSize=14))
 page.add_block(SpacerBlock(width=100, height=20))

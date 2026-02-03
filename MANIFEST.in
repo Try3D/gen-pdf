@@ -1,1 +1,1 @@
-recursive-include gen_pdf/fonts *.ttf
+recursive-include build_pdf/fonts *.ttf

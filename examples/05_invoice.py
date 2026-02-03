@@ -4,8 +4,8 @@ Example 5: Invoice Template
 Demonstrates a real-world use case - creating an invoice PDF
 """
 
-from gen_pdf import Document, Page
-from gen_pdf.blocks import TextBlock, TableBlock, SpacerBlock
+from build_pdf import Document, Page
+from build_pdf.blocks import TextBlock, TableBlock, SpacerBlock
 from reportlab.lib.colors import HexColor
 from reportlab.lib.units import inch
 

@@ -2,7 +2,7 @@ from typing import List, Union, Optional
 from reportlab.platypus import Table, TableStyle
 from reportlab.lib.colors import HexColor
 from .base import Block, BaseTableBlock
-from gen_pdf.styles.context import RenderContext
+from build_pdf.styles.context import RenderContext
 
 class ContainerBlock(BaseTableBlock):
     def __init__(self, children: Union[Block, List[Block]], style=None):

@@ -1,7 +1,7 @@
 from typing import Optional, TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from gen_pdf.styles.context import RenderContext
+    from build_pdf.styles.context import RenderContext
 import os
 import tempfile
 import urllib.request
