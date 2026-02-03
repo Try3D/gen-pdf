@@ -7,6 +7,6 @@ from .container import ContainerBlock
 from .row import RowBlock
 from .columns import ColumnsBlock
 from .grid import GridBlock
-from .svg import SvgBlock
+
 from .icon import IconBlock
 from .lucide import LucideIconBlock

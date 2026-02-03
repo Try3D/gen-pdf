@@ -1,5 +1,11 @@
 from reportlab.lib.pagesizes import letter
-from reportlab.platypus import BaseDocTemplate, PageTemplate, Frame, NextPageTemplate, PageBreak
+from reportlab.platypus import (
+    BaseDocTemplate,
+    PageTemplate,
+    Frame,
+    NextPageTemplate,
+    PageBreak,
+)
 from reportlab.lib.colors import HexColor
 from reportlab.lib.units import inch
 from typing import List, Optional
@@ -7,6 +13,7 @@ from .page import Page
 
 
 from .styles.context import RenderContext
+
 
 class Document:
     def __init__(self, pagesize=letter, pages: List[Page] = None):
@@ -18,10 +25,10 @@ class Document:
         if not isinstance(page, Page):
             raise TypeError("Expected a Page object")
         self.pages.append(page)
-    
+
     def append(self, pages: list):
         if not isinstance(pages, list):
-             raise TypeError("Expected a list of Page objects")
+            raise TypeError("Expected a list of Page objects")
         for p in pages:
             self.add_page(p)
 
@@ -30,55 +37,68 @@ class Document:
             if color:
                 canvas.saveState()
                 final_color = color
-                c = HexColor(final_color) if isinstance(final_color, str) and final_color.startswith('#') else final_color
+                c = (
+                    HexColor(final_color)
+                    if isinstance(final_color, str) and final_color.startswith("#")
+                    else final_color
+                )
                 canvas.setFillColor(c)
                 w, h = self.pagesize
                 canvas.rect(0, 0, w, h, fill=True, stroke=False)
                 canvas.restoreState()
+
         return draw
 
     def generate(self, filename: str):
-        doc = BaseDocTemplate(filename, pagesize=self.pagesize)
-        
-        context = self.context
-            
-        margin = 72
-        
-        frame = Frame(
-            margin, margin, 
-            doc.width, doc.height, 
-            id='normal'
+        margin = 36
+
+        doc = BaseDocTemplate(
+            filename,
+            pagesize=self.pagesize,
+            leftMargin=margin,
+            rightMargin=margin,
+            topMargin=margin,
+            bottomMargin=margin,
         )
-        
+
+        context = self.context
+
+        page_w, page_h = self.pagesize
+        frame_w = page_w - 2 * margin
+        frame_h = page_h - 2 * margin
+
+        frame = Frame(margin, margin, frame_w, frame_h, id="normal")
+
         templates = []
         story = []
-        
+
         for i, page in enumerate(self.pages):
-            template_id = f'PageTemplate_{i}'
-            
+            template_id = f"PageTemplate_{i}"
+
             pt = PageTemplate(
-                id=template_id, 
-                frames=[frame], 
-                onPage=self._make_bg_drawer(page.bg_color, context)
+                id=template_id,
+                frames=[frame],
+                onPage=self._make_bg_drawer(page.bg_color, context),
             )
             templates.append(pt)
-            
+
             if i == 0:
                 story.extend(page.get_renderables(context))
             else:
                 story.append(NextPageTemplate(template_id))
                 story.append(PageBreak())
                 story.extend(page.get_renderables(context))
-        
+
         doc.addPageTemplates(templates)
         doc.build(story)
+
 
 class DocumentBuilder:
     def __init__(self, pagesize=letter):
         self.pages = []
         self.pagesize = pagesize
 
-    def add_page(self, page: Page) -> 'DocumentBuilder':
+    def add_page(self, page: Page) -> "DocumentBuilder":
         self.pages.append(page)
         return self
 
